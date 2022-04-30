@@ -1,23 +1,40 @@
-# n = 13
-ff = [4, 5, 7, 0, 1, 4, 9, 0, 2, 3, 5, 2, 0]
-print(ff)
+street_len = 9
+house_num = [1, 7, 0, 5, 3, 0, 3, 0, 3]
 
-f_zero = [3, 7, 12]
-f = []
-for i in reversed(range(f_zero[0] + 1)):
-    f.append(i)
 
-for i in range(1, 3):
-    f.append(i)
+def sort_zero(street_len, house_num):
+    f_zero = []
+    for i in range(street_len):
+        if house_num[i] == 0:
+            f_zero.append(i)
+    len_to_zero = []
+    i = 0
+    m = street_len
+    if f_zero[0] != 0:
+        for i in reversed(range(f_zero[0] + 1)):
+            len_to_zero.append(i)
 
-for i in reversed(range(0, 2)):
-    f.append(i)
+    for j in range(0, len(f_zero) - 1):
+        raz = int(f_zero[j + 1]) - int(f_zero[j])
+        if (raz + 1) % 2 == 0:
+            street_len = int(raz / 2 + 1)
+            for i in range(1, street_len):
+                len_to_zero.append(i)
+            for i in reversed(range(0, street_len)):
+                len_to_zero.append(i)
+        else:
+            street_len = int(raz / 2 + 1)
+            for i in range(1, street_len - 1):
+                len_to_zero.append(i)
+            for i in reversed(range(0, street_len)):
+                len_to_zero.append(i)
 
-for i in range(1, 4):
-    f.append(i)
+    x = f_zero[len(f_zero) - 1]
 
-for i in reversed(range(0, 3)):
-    f.append(i)
+    if x < m - 1:
+        for i in range(1, m - x):
+            len_to_zero.append(i)
+    return len_to_zero
 
-print(f)
-print(" ".join(map(str, f)))
+
+print(" ".join(map(str, sort_zero(street_len, house_num))))

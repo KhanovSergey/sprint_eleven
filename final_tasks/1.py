@@ -1,20 +1,20 @@
+# street_len = int(input())
+# house_num = input()
+#
+
 street_len = 5
 house_num = [0, 1, 4, 9, 0]
 
-# street_len = int(input())
-# house_num = input().split()
-
-
 f_zero = []
-
 for i in range(street_len):
     if house_num[i] == 0:
         f_zero.append(i)
+
 len_to_zero = []
 m = street_len
-print(f_zero)
-print(f_zero[0])
-if f_zero[0] == 0:
+z = f_zero[0]
+
+if z == 0:
     len_to_zero.append(0)
 else:
     for i in reversed(range(f_zero[0] + 1)):

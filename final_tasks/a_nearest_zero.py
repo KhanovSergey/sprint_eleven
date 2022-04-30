@@ -1,42 +1,50 @@
-def main():
-    # n = int(input())
-    # f = input().split()
-    n = 5
-    f = [0, 1, 4, 9, 0]
-    # count = 0
-    f_zer = []
-    f_rez = []
-    for i in range(n):
-        if f[i] == 0:
-            f_zer.append(i)
-            f_rez.append(0)
+street_len = 5
+house_num = [0, 1, 4, 9, 0]
+
+
+# street_len = int(input())
+# house_num = input().split()
+
+
+def sort_zero(street_len, house_num):
+    f_zero = []
+    len_to_zero = []
+    m = street_len
+
+    for i in range(street_len):
+        if house_num[i] == 0:
+            f_zero.append(i)
+
+    print(f_zero)
+    print(f_zero[0])
+
+    if int(f_zero[0]) == 0:
+        len_to_zero.append(0)
+    else:
+        for i in reversed(range(f_zero[0] + 1)):
+            len_to_zero.append(i)
+
+    for j in range(0, len(f_zero) - 1):
+        raz = int(f_zero[j + 1]) - int(f_zero[j])
+        if (raz + 1) % 2 == 0:
+            street_len = int(raz / 2 + 1)
+            for i in range(1, street_len):
+                len_to_zero.append(i)
+            for i in reversed(range(0, street_len)):
+                len_to_zero.append(i)
         else:
-            f_rez.append(1)
-    print(f_zer)
-    print(f_rez)
-    #print(f_zer[1])
-    # f_rez = []
-    #print(f_zer[-1])
-    # for j in range(n):
-    #     if f_zer[-1] <= n - 1:
+            street_len = int(raz / 2 + 1)
+            for i in range(1, street_len - 1):
+                len_to_zero.append(i)
+            for i in reversed(range(0, street_len)):
+                len_to_zero.append(i)
+
+    x = f_zero[len(f_zero) - 1]
+
+    if x < m - 1:
+        for i in range(1, m - x):
+            len_to_zero.append(i)
+    return len_to_zero
 
 
-    tot = f_zer[1] - f_zer[0]
-    if tot % 2 == 0 and tot <= 4:
-        f_rez[2] = 2
-        # for j in range(2, n):
-        #     f_rez.insert(2, 2)
-    print(f_rez)
-
-
-
-    #     if len(word) > count:
-    #         res_word = word
-    #         count = len(word)
-    # print(res_word)
-    # print(count)
-
-
-if __name__ == '__main__':
-    main()
-
+print(" ".join(map(str, sort_zero(street_len, house_num))))
