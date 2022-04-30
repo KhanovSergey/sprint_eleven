@@ -1,5 +1,5 @@
-street_len = 5
-house_num = [0, 1, 4, 9, 0]
+# street_len = 5
+# house_num = [0, 1, 4, 9, 0]
 
 
 # street_len = int(input())
@@ -15,10 +15,7 @@ def sort_zero(street_len, house_num):
         if house_num[i] == 0:
             f_zero.append(i)
 
-    print(f_zero)
-    print(f_zero[0])
-
-    if int(f_zero[0]) == 0:
+    if f_zero[0] == 0:
         len_to_zero.append(0)
     else:
         for i in reversed(range(f_zero[0] + 1)):
@@ -47,4 +44,11 @@ def sort_zero(street_len, house_num):
     return len_to_zero
 
 
-print(" ".join(map(str, sort_zero(street_len, house_num))))
+def main():
+    street_len = int(input())
+    house_num = input().split()
+    print(" ".join(map(str, sort_zero(street_len, house_num))))
+
+
+if __name__ == '__main__':
+    main()

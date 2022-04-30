@@ -42,3 +42,7 @@ if x < m - 1:
         len_to_zero.append(i)
 
 print(" ".join(map(str, len_to_zero)))
+
+
+if __name__ == '__main__':
+    main()
