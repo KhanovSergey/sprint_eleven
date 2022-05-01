@@ -1,11 +1,3 @@
-# street_len = 5
-# house_num = [0, 1, 4, 9, 0]
-
-
-# street_len = int(input())
-# house_num = input().split()
-
-
 def sort_zero(street_len, house_num):
     f_zero = []
     len_to_zero = []
@@ -46,7 +38,7 @@ def sort_zero(street_len, house_num):
 
 def main():
     street_len = int(input())
-    house_num = input().split()
+    house_num = list(map(int, input().strip().split()))
     print(" ".join(map(str, sort_zero(street_len, house_num))))
 
 
