@@ -1,11 +1,8 @@
 def sort_zero(street_len, house_num):
-    f_zero = []
     len_to_zero = []
     m = street_len
 
-    for i in range(street_len):
-        if house_num[i] == 0:
-            f_zero.append(i)
+    f_zero = [i for i, value in enumerate(house_num) if value == 0]
 
     if f_zero[0] == 0:
         len_to_zero.append(0)
@@ -15,14 +12,14 @@ def sort_zero(street_len, house_num):
 
     for j in range(0, len(f_zero) - 1):
         raz = int(f_zero[j + 1]) - int(f_zero[j])
+        street_len = int(raz / 2 + 1)
         if (raz + 1) % 2 == 0:
-            street_len = int(raz / 2 + 1)
             for i in range(1, street_len):
                 len_to_zero.append(i)
             for i in reversed(range(0, street_len)):
                 len_to_zero.append(i)
         else:
-            street_len = int(raz / 2 + 1)
+            # street_len = int(raz / 2 + 1)
             for i in range(1, street_len - 1):
                 len_to_zero.append(i)
             for i in reversed(range(0, street_len)):
