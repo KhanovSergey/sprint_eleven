@@ -65,3 +65,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+# https://stackoverflow.com/questions/10166686/how-do-i-exit-program-in-try-except
