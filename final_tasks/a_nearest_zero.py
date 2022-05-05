@@ -1,4 +1,5 @@
 # ID 68065811
+import sys
 
 def sort_zero(street_len, house_num):
     len_to_zero = []
@@ -34,10 +35,32 @@ def sort_zero(street_len, house_num):
     return len_to_zero
 
 
+# def valid_street_len(street_len):
+#     if type(street_len) != int:
+#         raise ValueError('ввод не int')
+
+
+def valid_street_len(street_len):
+    try:
+        int(street_len)
+        print("ввод int")
+        #return int(street_len)
+
+    except ValueError:
+        print("Надо ввести число от 1 до 1 000 000")
+        sys.exit(1)
+
+
+
 def main():
-    street_len = int(input())
+    street_len = input()
+    print(street_len)
+    print(type(street_len))
+    street_len_int = valid_street_len(street_len)
     house_num = list(map(int, input().strip().split()))
-    print(" ".join(map(str, sort_zero(street_len, house_num))))
+    print(house_num)
+    print(len(house_num))
+    print(" ".join(map(str, sort_zero(street_len_int, house_num))))
 
 
 if __name__ == '__main__':
