@@ -1,5 +1,5 @@
 """
-ID 68147761
+ID 68150418
 Code edits after the second review.
 """
 
@@ -78,9 +78,9 @@ def main():
 
     if street_len_int == len(house_num):
         return " ".join(map(str, sort_zero(street_len_int, house_num)))
-    else:
-        return (f'Длина улицы {street_len_int} не равна {len(house_num)} '
-                f'(сумме застроеных и пустых участков на карте).')
+
+    return (f'Длина улицы {street_len_int} не равна {len(house_num)} '
+            f'(сумме застроеных и пустых участков на карте).')
 
 
 if __name__ == '__main__':
